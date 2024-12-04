@@ -1,17 +1,32 @@
+body{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .container{
   display: flex;
   flex-direction: column;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 80vh;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
 }
 .containerChildToggle {
   display: flex;
-  color: red;
-  border:1px solid blue;
   flex: 1;
 }
 .containerGrandChildToggle{
-  background: lightpink;
   flex: 1;
-  border: 1px solid blue;
+}
+.preferredChoice {
+  background: linear-gradient(purple, yellow);
+  color: white;
+  font-weight: 700;
+  font-family: Sans-Serif;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  padding: 10px;
 }

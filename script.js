@@ -8,34 +8,38 @@ function randBackgroundColor(num){
   return Math.floor(Math.random()*num)
 }
 
+dispatchDefaultEtchNum()
+function dispatchDefaultEtchNum(){
 let dispatchEtch = new Event("click")
 
 preferredChoice.addEventListener("click", (e)=>{
-  let numberOfEtch = 16
+  let defaultNumberOfEtch = 16
   execute++
   
   if(execute > 1){
-    numberOfEtch = enterPreferredChoice()
+    defaultNumberOfEtch = enterPreferredChoice()
   }
 
-for(i=1; i<=numberOfEtch; i++){
+generateEnteredChoice()
+function generateEnteredChoice(){
+ 
+for(i=1; i<=defaultNumberOfEtch; i++){
   const containerChild = document.createElement("div")
-   for(j=1; j<=numberOfEtch; j++){
+   for(j=1; j<=defaultNumberOfEtch; j++){
     const containerGrandChild = document.createElement("div")
     
     containerGrandChild.addEventListener("click", (e)=>{
       let clickedArea = e.target
-      let saturatedBackground =
+      let randomBackgroundColor =
   ` background : rgb(${randBackgroundColor(255)+1}, ${randBackgroundColor(255)+1}, ${randBackgroundColor(255)+1});
      opacity : 0.${opacityIncreement};`
-     
      
       if(clickedArea){
         if(opacityIncreement === 9){
           opacityIncreement = 0
         }
         opacityIncreement++
-        clickedArea.style.cssText = saturatedBackground
+        clickedArea.style.cssText = randomBackgroundColor
       }
     })
     containerChild.appendChild(containerGrandChild)
@@ -46,20 +50,26 @@ for(i=1; i<=numberOfEtch; i++){
   container.appendChild(containerChild)
   
   containerChild.classList.toggle("containerChildToggle")
-  
   }
-
+}
   function enterPreferredChoice(){
-let enteredChoice = +prompt(`Enter the number of Etch-a-Sketch you want ranging from (1 - 200)`) 
-if(enteredChoice){
+let enteredChoice = +prompt(`Enter the number of Etch-a-Sketch you want ranging from (1 - 100)`) 
+if(enteredChoice <= 100 && enteredChoice > 0){
  const containerChild = document.querySelectorAll(".containerChildToggle")
  
  containerChild.forEach((div)=>{
   container.removeChild(div)
        })
-    }
     return enteredChoice
- }
+    }
+    else if(enteredChoice > 100){ alert('Maximun number out of range') }
+    else if(!enteredChoice){
+      let cancel = true
+    }
+    else if(enteredChoice <= 0){ alert('Minimum number') }
+    else{ alert('Invalid')} 
+  }
 })
 
 preferredChoice.dispatchEvent(dispatchEtch)
+}
