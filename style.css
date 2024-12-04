@@ -1,8 +1,11 @@
+*{
+  box-sizing: border-box;
+}
 body{
-  padding: 10px;
+  padding: 0px 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 4px;
 }
 .container{
   display: flex;
@@ -20,13 +23,21 @@ body{
   flex: 1;
 }
 .preferredChoice {
-  background: linear-gradient(purple, yellow);
+  background: linear-gradient(white, purple, yellow, blue, red, green, gold, maroon, teal, coral, white);
   color: white;
   font-weight: 700;
   font-family: Sans-Serif;
   border: none;
   border-radius: 10px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
   padding: 10px;
+}
+h3{
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  padding: 5px;
+  border-radius: 5px;
 }
