@@ -19,7 +19,16 @@ for(i=1; i<=numberOfEtch; i++){
   }
 
   function enterPreferredChoice(){
-return +prompt(`Enter the number of Etch-a-Sketch you want ranging from (1 - 200)`)   }
+let enteredChoice = +prompt(`Enter the number of Etch-a-Sketch you want ranging from (1 - 200)`) 
+if(enteredChoice){
+ const divs = document.querySelectorAll("div")
+ 
+ divs.forEach((div)=>{
+  container.removeChild(div)
+       })
+    }
+    return enteredChoice
+ }
 })
 
 preferredChoice.dispatchEvent(dispatchEtch)
