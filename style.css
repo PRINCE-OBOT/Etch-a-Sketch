@@ -4,9 +4,14 @@
   width: 500px;
   height: 500px;
 }
-.container > div {
+.containerChildToggle {
+  display: flex;
   color: red;
   border:1px solid blue;
-  width: 40px;
-  height: 30px;
+  flex: 1;
+}
+.containerGrandChildToggle{
+  background: lightpink;
+  flex: 1;
+  border: 1px solid blue;
 }
