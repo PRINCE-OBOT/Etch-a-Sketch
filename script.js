@@ -64,12 +64,10 @@ if(enteredChoice <= 100 && enteredChoice > 0){
     dimension.textContent = `${enteredChoice}x${enteredChoice}`
     return enteredChoice
     }
-    else if(enteredChoice > 100){ alert('Maximun number out of range') }
-    else if(!enteredChoice){
-      let cancel = true
-    }
-    else if(enteredChoice <= 0){ alert('Minimum number') }
-    else{ alert('Invalid')} 
+    else if(enteredChoice > 100){ alert('Etch-a-Sketch number greater than 100') }
+   else if(enteredChoice == false){let cancel = true}
+    else if(enteredChoice <= 0){ alert('Etch-a-Sketch number lower than 0') }
+    else{ alert('Invalid Etch-a-Sketch input')} 
   }
 })
 
