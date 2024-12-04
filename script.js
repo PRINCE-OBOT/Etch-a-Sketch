@@ -1,5 +1,6 @@
 const container = document.querySelector(".container")
 const preferredChoice = document.querySelector(".preferredChoice")
+const dimension = document.querySelector(".dimension")
 
 let opacityIncreement = 0
 let execute = 0
@@ -60,6 +61,7 @@ if(enteredChoice <= 100 && enteredChoice > 0){
  containerChild.forEach((div)=>{
   container.removeChild(div)
        })
+    dimension.textContent = `${enteredChoice}x${enteredChoice}`
     return enteredChoice
     }
     else if(enteredChoice > 100){ alert('Maximun number out of range') }
