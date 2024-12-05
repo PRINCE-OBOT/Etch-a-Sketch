@@ -22,7 +22,7 @@ body{
 .containerGrandChildToggle{
   flex: 1;
 }
-.preferredChoice {
+.mulBgColor {
   background: linear-gradient(white, purple, yellow, blue, red, green, gold, maroon, teal, coral, white);
   color: white;
   font-weight: 700;
@@ -32,6 +32,7 @@ body{
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
   padding: 10px;
+  flex: auto;
 }
 header{
   display: flex;
@@ -57,4 +58,18 @@ h3{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.backgroundColorCon{
+  display: flex;
+  gap: 9px;
+}
+.singleBackgroundColor{
+  flex: 1;
+  font-size: 8px;
+  background: grey;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
+  color: white;
 }

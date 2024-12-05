@@ -1,24 +1,37 @@
 const container = document.querySelector(".container")
-const preferredChoice = document.querySelector(".preferredChoice")
+const backgroundColorCon = document.querySelector(".backgroundColorCon")
+const mulBgColor = document.querySelector(".mulBgColor")
 const dimension = document.querySelector(".dimension")
 
 let opacityIncreement = 0
 let execute = 0
 
-function randBackgroundColor(num){
-  return Math.floor(Math.random()*num)
-}
-
 dispatchDefaultEtchNum()
 function dispatchDefaultEtchNum(){
 let dispatchEtch = new Event("click")
 
-preferredChoice.addEventListener("click", (e)=>{
+backgroundColorCon.addEventListener("click", (e)=>{
+  function randBackgroundColor(num){
+  return Math.floor(Math.random()*num)
+}
+
+  let randomBg = e.target.className
   let defaultNumberOfEtch = 16
   execute++
   
-  if(execute > 1){
+  if(execute > 1 && randomBg === "mulBgColor"){
     defaultNumberOfEtch = enterPreferredChoice()
+    
+   function randBackgroundColor(num){
+  return Math.floor(Math.random()*num)
+    }
+  }
+  else if(execute > 1 && randomBg === "singleBackgroundColor"){
+    defaultNumberOfEtch = enterPreferredChoice()
+    
+   function randBackgroundColor(num){
+  return 10
+    }
   }
 
 generateEnteredChoice()
@@ -71,5 +84,5 @@ if(enteredChoice <= 100 && enteredChoice > 0){
   }
 })
 
-preferredChoice.dispatchEvent(dispatchEtch)
+backgroundColorCon.dispatchEvent(dispatchEtch)
 }
