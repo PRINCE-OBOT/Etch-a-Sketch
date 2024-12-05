@@ -19,6 +19,7 @@ backgroundColorCon.addEventListener("click", (e)=>{
   let defaultNumberOfEtch = 16
   execute++
   
+  //Enable the enterPreferredChoice function, prompt only after the default 16x16 grid display. Setting execute to 0, dispatching Event making it 1, and clicking the target making it 2, which is greater than 1, making the entered function to prompt.
   if(execute > 1 && randomBg === "mulBgColor"){
     defaultNumberOfEtch = enterPreferredChoice()
     
