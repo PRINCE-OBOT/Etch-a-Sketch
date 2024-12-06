@@ -12,13 +12,18 @@ body {
   gap: 5px;
   min-width: 400px;
   max-width: 500px;
+  border: 5px solid rgb(60, 58, 2);
+  background: rgb(248, 238, 214);
+  padding: 10px;
+  border-radius: 10px;
 }
 .container {
   display: flex;
   flex-direction: column;
-  height: 75vh;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  height: 65vh;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
+  padding: 2px;
 }
 .containerChildToggle {
   display: flex;
@@ -44,20 +49,22 @@ h3 {
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
+  background: rgb(3, 2, 0);
 }
 code {
   text-shadow: none;
-  color: black;
+  color: rgb(15, 4, 4);
   font-size: 10px;
   padding: 10px;
+  text-shadow: -1px 1px 3px white;
 }
 .dimension {
   color: white;
   font-weight: 900;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-  background: black;
+  background: linear-gradient(to right, rgb(15, 11, 1), rgb(53, 46, 5));
   border: none;
-  padding: 10px;
+  padding: 16px;
   border-radius: 5px;
   display: flex;
   align-items: center;
