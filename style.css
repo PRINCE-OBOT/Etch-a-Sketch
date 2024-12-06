@@ -108,3 +108,10 @@ code {
   color: white;
   padding: 15px;
 }
+
+@media (min-width: 200px) and (max-width: 300px) {
+  .content {
+    min-width: 100px;
+    max-width: 200px;
+  }
+}

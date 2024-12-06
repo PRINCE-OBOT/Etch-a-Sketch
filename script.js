@@ -71,23 +71,19 @@ function enterPreferredChoice() {
     const containerChild = document.querySelectorAll(".containerChildToggle");
     containerChild.forEach((div) => {
       container.removeChild(div);
+      defaultNumberOfEtch = enteredChoice;
     });
-    defaultNumberOfEtch = enteredChoice;
     dimension.innerHTML = `&#128297;${enteredChoice}x${enteredChoice}`;
   } else if (enteredChoice > 100) {
     alert("Etch-a-Sketch number greater than 100");
   } else if (enteredChoice == false) {
-    let cancel = true;
+    defaultNumberOfEtch = enteredChoice;
   } else if (enteredChoice <= 0) {
     alert("Etch-a-Sketch number lower than 0");
   } else {
     alert("Invalid Etch-a-Sketch input");
   }
 }
-
-// dimension.addEventListener("click", ()=>{
-//     defaultNumberOfEtch = enterPreferredChoice();
-// })
 
 //Updates the value of opacityIncreement,  opacitySetting and defaultColor when clicked
 document.body.addEventListener("click", (e) => {
