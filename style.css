@@ -22,21 +22,10 @@ body{
 .containerGrandChildToggle{
   flex: 1;
 }
-.mulBgColor {
-  background: linear-gradient(white, purple, yellow, blue, red, green, gold, maroon, teal, coral, white);
-  color: white;
-  font-weight: 700;
-  font-family: Sans-Serif;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
-  padding: 10px;
-  flex: auto;
-}
-header{
+.headerContainer{
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 header *{
   flex: 1;
@@ -49,11 +38,19 @@ h3{
   padding: 5px;
   border-radius: 5px;
 }
+code{
+  text-shadow: none;
+  color: black;
+  font-size: 10px;
+  padding: 10px;
+}
 .dimension{
-  color: green;
+  color: white;
   font-weight: 900;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-  padding: 5px;
+  background: linear-gradient(brown , black);
+  border: none;
+  padding: 10px;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -63,13 +60,26 @@ h3{
   display: flex;
   gap: 9px;
 }
+.mulBgColor {
+  background: linear-gradient(white, purple, yellow, blue, red, green, gold, maroon, teal, coral, white);
+  color: white;
+  font-weight: 700;
+  font-family: Sans-Serif;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+  padding: 15px;
+  flex: auto;
+}
 .singleBackgroundColor{
   flex: 1;
   font-size: 8px;
-  background: grey;
+  background: linear-gradient( rgb(200, 200, 200), rgb(150, 150, 150),rgb(100, 100, 100), rgb(60, 60, 60), rgb(0,0,0));
   border: none;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
   font-weight: 700;
   color: white;
+  padding: 15px;
 }

@@ -1,38 +1,57 @@
 const container = document.querySelector(".container")
+const headText = document.querySelector("h3")
 const backgroundColorCon = document.querySelector(".backgroundColorCon")
-const mulBgColor = document.querySelector(".mulBgColor")
+const headerContainer = document.querySelector(".headerContainer")
 const dimension = document.querySelector(".dimension")
 
 let opacityIncreement = 0
 let execute = 0
+let defaultColor = "defColor";
+let opacitySetting = true;
 
+function randBackgroundColor(rgb){
+  if(defaultColor === "defColor"){
+    return 0
+  }
+  else if(defaultColor === "mulColor"){
+    return Math.floor(Math.random()*rgb)
+  }
+  else if(defaultColor === "singleColor"){
+    return 10
+  }
+}
+
+function opacity(range){
+  if(opacityIncreement === 9){
+    return 9
+  }
+  else if(opacityIncreement <= 10){
+  return range
+  }
+}
 dispatchDefaultEtchNum()
 function dispatchDefaultEtchNum(){
 let dispatchEtch = new Event("click")
 
-backgroundColorCon.addEventListener("click", (e)=>{
-  function randBackgroundColor(num){
-  return Math.floor(Math.random()*num)
-}
+headerContainer.addEventListener("click", (e)=>{
 
-  let randomBg = e.target.className
+//Updates the value of opacityIncreement, opacitySetting when clicked 
+  opacityIncreement = 9
+  opacitySetting = false
+  let headerChild = e.target.className
   let defaultNumberOfEtch = 16
   execute++
   
+  
   //Enable the enterPreferredChoice function, prompt only after the default 16x16 grid display. Setting execute to 0, dispatching Event making it 1, and clicking the target making it 2, which is greater than 1, making the entered function to prompt.
-  if(execute > 1 && randomBg === "mulBgColor"){
+  if(execute > 1 && headerChild === "dimension"){
     defaultNumberOfEtch = enterPreferredChoice()
-    
-   function randBackgroundColor(num){
-  return Math.floor(Math.random()*num)
-    }
   }
-  else if(execute > 1 && randomBg === "singleBackgroundColor"){
-    defaultNumberOfEtch = enterPreferredChoice()
-    
-   function randBackgroundColor(num){
-  return 10
-    }
+  //Updates the value of opacityIncreement, opacitySetting and defaultColor when clicked 
+  else if(execute > 1 && headerChild === "headText"){
+    defaultColor = defColor
+    opacityIncreement = 9;
+    opacity = false
   }
 
 generateEnteredChoice()
@@ -46,16 +65,20 @@ for(i=1; i<=defaultNumberOfEtch; i++){
     containerGrandChild.addEventListener("click", (e)=>{
       let clickedArea = e.target
       let randomBackgroundColor =
-  ` background : rgb(${randBackgroundColor(255)+1}, ${randBackgroundColor(255)+1}, ${randBackgroundColor(255)+1});
-     opacity : 0.${opacityIncreement};`
+  ` background : rgb(${randBackgroundColor(255)}, ${randBackgroundColor(255)}, ${randBackgroundColor(255)});
+    opacity : 0.${opacity(opacityIncreement)}`
+     
      
       if(clickedArea){
-        if(opacityIncreement === 9){
+        if(opacityIncreement === 10){
           opacityIncreement = 0
         }
+        if(opacitySetting){
         opacityIncreement++
+        }
         clickedArea.style.cssText = randomBackgroundColor
       }
+  
     })
     containerChild.appendChild(containerGrandChild)
     
@@ -85,5 +108,20 @@ if(enteredChoice <= 100 && enteredChoice > 0){
   }
 })
 
-backgroundColorCon.dispatchEvent(dispatchEtch)
+headerContainer.dispatchEvent(dispatchEtch)
 }
+
+//Updates the value of opacityIncreement,  opacitySetting and defaultColor when clicked 
+backgroundColorCon.addEventListener("click", (e)=>{
+  let clicked = e.target.className
+  if(clicked === "mulBgColor"){
+    defaultColor = "mulColor";
+    opacityIncreement = 9;
+    opacitySetting = false
+  }
+  else if(clicked === "singleBackgroundColor"){
+    defaultColor = "singleColor";
+    opacityIncreement = 0
+    opacitySetting = true
+  }
+})
