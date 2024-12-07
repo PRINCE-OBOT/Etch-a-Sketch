@@ -13,7 +13,7 @@ body {
   min-width: 400px;
   max-width: 500px;
   border: 5px solid rgb(60, 58, 2);
-  background: rgb(248, 238, 214);
+  background: white;
   padding: 10px;
   border-radius: 10px;
 }
