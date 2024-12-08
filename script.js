@@ -77,7 +77,7 @@ function enterPreferredChoice() {
   let enteredChoice = +prompt(
     `Enter the number of Etch-a-Sketch you want ranging from (1 - 100)`
   );
-  if (enteredChoice <= 100 && enteredChoice > 0) {
+  if (enteredChoice <= 100 && enteredChoice >= 1) {
     const containerChild = document.querySelectorAll(".containerChildToggle");
     containerChild.forEach((div) => {
       container.removeChild(div);
