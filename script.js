@@ -3,7 +3,6 @@ const headText = document.querySelector("h3");
 const backgroundColorCon = document.querySelector(".backgroundColorCon");
 const dimension = document.querySelector(".dimension");
 
-let opacityIncreement = 9;
 let defaultColor = "defColor";
 let opacitySetting = false;
 let defaultNumberOfEtch = 16;
@@ -19,36 +18,39 @@ function backgroundSelection(rgb) {
   }
 }
 
-function opacity(range) {
-  if (opacityIncreement === 9) {
-    return 9;
-  } else if (opacityIncreement <= 10) {
-    return range;
-  }
-}
-
 container.addEventListener("mouseenter", (event) => {
   if (event.target) generateGrid++;
   if (generateGrid === 1) {
     for (i = 1; i <= defaultNumberOfEtch; i++) {
       const containerChild = document.createElement("div");
+
       for (j = 1; j <= defaultNumberOfEtch; j++) {
         const containerGrandChild = document.createElement("div");
+
+        //set unique identify for each row and column container while they are created to identify them.
+        containerGrandChild.setAttribute(`data-opacity`, "0");
 
         containerGrandChild.addEventListener("mouseenter", (e) => {
           let clickedArea = e.target;
           let randomBackgroundColor = ` background : rgb(${backgroundSelection(
             255
           )}, ${backgroundSelection(255)}, ${backgroundSelection(255)});
-      opacity : 0.${opacity(opacityIncreement)}`;
+    `;
 
-          if (clickedArea) {
-            if (opacityIncreement === 10) {
-              opacityIncreement = 0;
-            }
-            if (opacitySetting) {
-              opacityIncreement++;
-            }
+          if (clickedArea && opacitySetting) {
+            //retrieve the current data-opacity value and convert to number.
+            let currentOpacity = +clickedArea.getAttribute(`data-opacity`);
+
+            //Increement click target data-opacity value and replaces the data-opacity with the increemented value
+            currentOpacity++;
+            clickedArea.setAttribute(`data-opacity`, currentOpacity);
+
+            //Keeps returning the smallest number, so as to maintain the full opaque.
+            let useOpacityValue = Math.min(currentOpacity, 9);
+            clickedArea.style.cssText = ` background : red;
+            opacity : 0.${useOpacityValue};
+    `;
+          } else if (clickedArea && !opacitySetting) {
             clickedArea.style.cssText = randomBackgroundColor;
           }
         });
