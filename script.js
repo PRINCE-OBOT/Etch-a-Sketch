@@ -2,11 +2,18 @@ const container = document.querySelector(".container");
 const headText = document.querySelector("h3");
 const backgroundColorCon = document.querySelector(".backgroundColorCon");
 const dimension = document.querySelector(".dimension");
+const randomActivated = document.querySelector(".randomActivated");
+const defaultActivated = document.querySelector(".defaultActivated");
+const singleActivated = document.querySelector(".singleActivated");
 
 let defaultColor = "defColor";
 let opacitySetting = false;
 let defaultNumberOfEtch = 16;
 let generateGrid = 0;
+
+// randomActivated.addEventListener("click", ()=>{
+
+// })
 
 function backgroundSelection(rgb) {
   if (defaultColor === "defColor") {
@@ -92,16 +99,18 @@ document.body.addEventListener("click", (e) => {
   let clicked = e.target.className;
   if (clicked === "mulBgColor") {
     defaultColor = "mulColor";
-    opacityIncreement = 9;
     opacitySetting = false;
+    randomActivated.classList.toggle("activated");
   } else if (clicked === "singleBackgroundColor") {
     defaultColor = "singleColor";
     opacityIncreement = 0;
     opacitySetting = true;
+    singleActivated.classList.toggle("activated");
   } else if (clicked === "headText") {
     defaultColor = "defColor";
     opacityIncreement = 9;
     opacitySetting = false;
+    defaultActivated.classList.toggle("activated");
   } else if (clicked === "dimension") {
     generateGrid = 0;
     enterPreferredChoice();

@@ -50,7 +50,14 @@ h3 {
   border-radius: 5px;
   cursor: pointer;
   background: rgb(3, 2, 0);
+  display: flex;
+  align-items: center;
 }
+.defaultActivated {
+  font-size: 14px;
+  display: none;
+}
+
 code {
   text-shadow: none;
   color: rgb(15, 4, 4);
@@ -97,6 +104,13 @@ code {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
   padding: 15px;
   flex: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.randomActivated {
+  font-size: 14px;
+  display: none;
 }
 .singleBackgroundColor {
   flex: 1;
@@ -114,6 +128,19 @@ code {
   font-weight: 700;
   color: white;
   padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.singleActivated {
+  font-size: 14px;
+  display: none;
+}
+.activated {
+  display: block;
+}
+.deactivated {
+  display: none;
 }
 
 @media (min-width: 200px) and (max-width: 300px) {
