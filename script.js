@@ -10,23 +10,19 @@ let defaultColor = "defColor";
 let opacitySetting = false;
 let defaultNumberOfEtch = 16;
 let generateGrid = 0;
-defaultActivated.innerHTML = `&#128161;`
-
-// randomActivated.addEventListener("click", ()=>{
-
-// })
+defaultActivated.innerHTML = `&#128161;`;
 
 function backgroundSelection(rgb) {
   if (defaultColor === "defColor") {
     return 0;
   } else if (defaultColor === "mulColor") {
     return Math.floor(Math.random() * rgb);
-  } else if (defaultColor === "singleColor") {
-    return 10;
   }
 }
 
+let myEvent = new MouseEvent("mouseenter");
 container.addEventListener("mouseenter", (event) => {
+  //Increement generateGrid setting it to 1 to enable the grid to be generated.
   if (event.target) generateGrid++;
   if (generateGrid === 1) {
     for (i = 1; i <= defaultNumberOfEtch; i++) {
@@ -101,24 +97,28 @@ document.body.addEventListener("click", (e) => {
   if (clicked === "mulBgColor") {
     defaultColor = "mulColor";
     opacitySetting = false;
-    randomActivated.innerHTML= `&#128161;`;
-    singleActivated.innerHTML= ``;
-    defaultActivated.innerHTML= ``;
+    randomActivated.innerHTML = `&#128161;`;
+    singleActivated.innerHTML = ``;
+    defaultActivated.innerHTML = ``;
   } else if (clicked === "singleBackgroundColor") {
     defaultColor = "singleColor";
     opacityIncreement = 0;
     opacitySetting = true;
     singleActivated.innerHTML = `&#128161;`;
     randomActivated.innerHTML = ``;
-   defaultActivated.innerHTML = ``;
+    defaultActivated.innerHTML = ``;
   } else if (clicked === "headText") {
     defaultColor = "defColor";
     opacityIncreement = 9;
     opacitySetting = false;
-    defaultActivated.innerHTML = `&#128161;`
-    singleActivated.innerHTML = ``
-    randomActivated.innerHTML = ``
+    defaultActivated.innerHTML = `&#128161;`;
+    singleActivated.innerHTML = ``;
+    randomActivated.innerHTML = ``;
+    //Allows user to input there preferred number of choice without having to hover around the grid for the first time.
+    //generateGrid set to 0, makes sure that the container does not generate extra grid when selecting colors.
+    //enterPreferredChoice ensure the prompt interaction does not run while the toy in loaded.
   } else if (clicked === "dimension") {
+    container.dispatchEvent(myEvent);
     generateGrid = 0;
     enterPreferredChoice();
   }
