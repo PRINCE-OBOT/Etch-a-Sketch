@@ -10,6 +10,7 @@ let defaultColor = "defColor";
 let opacitySetting = false;
 let defaultNumberOfEtch = 16;
 let generateGrid = 0;
+defaultActivated.innerHTML = `&#128161;`
 
 // randomActivated.addEventListener("click", ()=>{
 
@@ -94,23 +95,29 @@ function enterPreferredChoice() {
   }
 }
 
-//Updates the value of opacityIncreement,  opacitySetting and defaultColor when clicked
+//Updates opacitySetting, defaultActivated, and defaultColor when clicked
 document.body.addEventListener("click", (e) => {
   let clicked = e.target.className;
   if (clicked === "mulBgColor") {
     defaultColor = "mulColor";
     opacitySetting = false;
-    randomActivated.classList.toggle("activated");
+    randomActivated.innerHTML= `&#128161;`;
+    singleActivated.innerHTML= ``;
+    defaultActivated.innerHTML= ``;
   } else if (clicked === "singleBackgroundColor") {
     defaultColor = "singleColor";
     opacityIncreement = 0;
     opacitySetting = true;
-    singleActivated.classList.toggle("activated");
+    singleActivated.innerHTML = `&#128161;`;
+    randomActivated.innerHTML = ``;
+   defaultActivated.innerHTML = ``;
   } else if (clicked === "headText") {
     defaultColor = "defColor";
     opacityIncreement = 9;
     opacitySetting = false;
-    defaultActivated.classList.toggle("activated");
+    defaultActivated.innerHTML = `&#128161;`
+    singleActivated.innerHTML = ``
+    randomActivated.innerHTML = ``
   } else if (clicked === "dimension") {
     generateGrid = 0;
     enterPreferredChoice();

@@ -53,10 +53,6 @@ h3 {
   display: flex;
   align-items: center;
 }
-.defaultActivated {
-  font-size: 14px;
-  display: none;
-}
 
 code {
   text-shadow: none;
@@ -108,10 +104,7 @@ code {
   justify-content: center;
   align-items: center;
 }
-.randomActivated {
-  font-size: 14px;
-  display: none;
-}
+
 .singleBackgroundColor {
   flex: 1;
   font-size: 8px;
@@ -122,6 +115,9 @@ code {
     rgb(60, 60, 60),
     rgb(0, 0, 0)
   );
+  .defaultActivated, .randomActivated, .singleActivated{
+    font-size: 14px;
+  }
   border: none;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
@@ -131,16 +127,6 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.singleActivated {
-  font-size: 14px;
-  display: none;
-}
-.activated {
-  display: block;
-}
-.deactivated {
-  display: none;
 }
 
 @media (min-width: 200px) and (max-width: 300px) {
