@@ -69,27 +69,6 @@ container.addEventListener("mouseenter", (event) => {
     }
   }
 });
-function enterPreferredChoice() {
-  let enteredChoice = +prompt(
-    `Enter the number of Etch-a-Sketch you want ranging from (1 - 100)`
-  );
-  if (enteredChoice <= 100 && enteredChoice >= 1) {
-    const containerChild = document.querySelectorAll(".containerChildToggle");
-    containerChild.forEach((div) => {
-      container.removeChild(div);
-      defaultNumberOfEtch = enteredChoice;
-    });
-    dimension.innerHTML = `&#128297;${enteredChoice}x${enteredChoice}`;
-  } else if (enteredChoice > 100) {
-    alert("Etch-a-Sketch number greater than 100");
-  } else if (enteredChoice == false) {
-    defaultNumberOfEtch = enteredChoice;
-  } else if (enteredChoice <= 0) {
-    alert("Etch-a-Sketch number lower than 0");
-  } else {
-    alert("Invalid Etch-a-Sketch input");
-  }
-}
 
 //Updates opacitySetting, defaultActivated, and defaultColor when clicked
 document.body.addEventListener("click", (e) => {
@@ -120,6 +99,28 @@ document.body.addEventListener("click", (e) => {
   } else if (clicked === "dimension") {
     container.dispatchEvent(myEvent);
     generateGrid = 0;
-    enterPreferredChoice();
+
+while(true){
+    let enteredChoice = +prompt(
+    `Enter the number of Etch-a-Sketch you want ranging from (1 - 100)`
+  );
+  if (enteredChoice <= 100 && enteredChoice >= 1) {
+    const containerChild = document.querySelectorAll(".containerChildToggle");
+    containerChild.forEach((div) => {
+      container.removeChild(div);
+      defaultNumberOfEtch = enteredChoice;
+    });
+    dimension.innerHTML = `&#128297;${parseInt(enteredChoice)}x${parseInt(enteredChoice)}`;
+      break;
+  } else if (enteredChoice > 100) {
+    alert("Etch-a-Sketch number greater than 100");
+  } else if (enteredChoice == false) {
+    defaultNumberOfEtch = enteredChoice;
+  } else if (enteredChoice <= 0) {
+    alert("Etch-a-Sketch number lower than 0");
+  } else {
+    alert("Invalid Etch-a-Sketch input");
+  }
+}
   }
 });

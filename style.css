@@ -68,7 +68,7 @@ code {
   background: linear-gradient(to right, rgb(15, 11, 1), rgb(53, 46, 5));
   border: none;
   padding: 16px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
