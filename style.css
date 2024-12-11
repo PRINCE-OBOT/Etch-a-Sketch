@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: sans;
 }
 body {
   padding: 2px 10px;
@@ -16,6 +17,31 @@ body {
   background: white;
   padding: 10px;
   border-radius: 10px;
+  position: relative;
+}
+@keyframes resize{
+  from{scale : 1}
+  to{scale : 1.5}
+}
+.indicator{
+  width: 10px;
+  height: 10px;
+  font-size: 4px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 3.5px;
+  color: white;
+  background: linear-gradient(pink, coral, gold);
+  border-radius: 5px;
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  animation: resize 1s cubic-bezier(0.5, 1, 1, 0.8) infinite alternate;
+}
+.d{
+  font-size: 11px;
+  font-weight: bolder;
 }
 .container {
   display: flex;
@@ -25,6 +51,7 @@ body {
   border-radius: 8px;
   padding: 2px;
 }
+
 .containerChildToggle {
   display: flex;
   flex: 1;
@@ -52,6 +79,13 @@ h3 {
   background: rgb(3, 2, 0);
   display: flex;
   align-items: center;
+  height: 70px;
+  transition: color 6s;
+}
+h3{
+  @Starting-style{
+    color: black;
+  }
 }
 
 code {
@@ -62,16 +96,42 @@ code {
   text-shadow: -1px 1px 3px white;
 }
 .dimension {
-  color: white;
-  font-weight: 900;
+  color:rgba(255, 255, 255, 0.7);
+  font-weight: bolder;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
   background: linear-gradient(to right, rgb(15, 11, 1), rgb(53, 46, 5));
   border: none;
-  padding: 16px;
+  padding: 19px;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  height: 70px;
+  max-width: 130px;
+}
+@keyframes resize{
+  from{scale : 1}
+  to{scale : 1.5}
+}
+.indicator{
+  width: 10px;
+  height: 10px;
+  font-size: 4px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 3.5px;
+  color: white;
+  background: linear-gradient(pink, coral, gold);
+  border-radius: 5px;
+  position: absolute;
+  top: 58px;
+  right: 50px;
+  animation: resize 1s cubic-bezier(0.5, 1, 1, 0.8) infinite alternate;
+}
+.d{
+  font-size: 11px;
+  font-weight: bolder;
 }
 .backgroundColorCon {
   display: flex;
