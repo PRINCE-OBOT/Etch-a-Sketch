@@ -107,7 +107,7 @@ code {
   align-items: center;
   justify-content: start;
   height: 70px;
-  max-width: 130px;
+  max-width: 140px;
 }
 @keyframes resize{
   from{scale : 1}
